@@ -1,0 +1,16 @@
+{
+  "name": "pozos",
+  "version": "1.0.0",
+  "description": "Programa actualizado para la medicion de pozos petroleros, Programacion Web.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andres Rosales",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^4.2.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3"
+  }
+}
