@@ -36,9 +36,12 @@ const loadInitialTemplate = () => {
     body.style.fontFamily = 'system-ui';
     body.innerHTML = template;
 
-    document.querySelectorAll('#pozo-form > div').forEach(e => {e.style.display = 'flex'});
-    document.querySelectorAll('#pozo-form > div').forEach(e => {e.style.justifyContent = 'space-between'});
-    document.querySelectorAll('#pozo-form > div').forEach(e => {e.style.marginBottom = '10px'});
+    document.querySelectorAll('#pozo-form > div').forEach(e => {
+        e.style.display = 'flex';
+        e.style.justifyContent = 'space-between';
+        e.style.marginBottom = '10px'
+    });
+    
 }
 
 const getPozos = async () => {
