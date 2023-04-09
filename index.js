@@ -13,6 +13,8 @@ app.get('/pozos', pozos.list);
 app.post('/pozos', pozos.create);
 app.get('/pozos/:id', pozos.get);
 
+app.get('/data', pozos.get_data);
+
 app.use(express.static('app'));
 
 app.get('/', (req, res) => {

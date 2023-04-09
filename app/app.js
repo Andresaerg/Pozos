@@ -21,15 +21,20 @@ const loadInitialTemplate = () => {
                 <input type="date" name="fecha">
             </div>
             <button type="submit">Enviar</button>
+            <br>
+            <button type="button" id="get-all">Ver histograma de pozos</button>
         </form>
         <ul id="pozos-list">
             
         </ul>
+        <div>
+            
+        </div>
     `
     // Por nasch: const body = document.getElementByTagName('body')[0];
     const body = document.querySelector('body');
-    body.innerHTML = template;
     body.style.fontFamily = 'system-ui';
+    body.innerHTML = template;
 
     document.querySelectorAll('#pozo-form > div').forEach(e => {e.style.display = 'flex'});
     document.querySelectorAll('#pozo-form > div').forEach(e => {e.style.justifyContent = 'space-between'});
@@ -58,6 +63,18 @@ const getPozos = async () => {
     })
 }
 
+const getAllPozos = async () => {
+    const getAll =  document.getElementById('get-all');
+    getAll.onclick = async () => {
+        const response = await fetch('/data');
+        const data = await response.json();
+        const template = data => `
+            Nombre: ${data.name}, PSI: ${data.psi.$numberDecimal}, Fecha: ${data.fecha}
+        `;
+        alert(data.map(datos => template(datos)));
+    }
+}
+
 const addPozo = async () => {
     const pozoForm = document.getElementById('pozo-form');
     pozoForm.onsubmit = async (e) => {
@@ -78,8 +95,10 @@ const addPozo = async () => {
 }
 
 
+
 window.onload = () => {
     loadInitialTemplate();
     getPozos();
+    getAllPozos();
     addPozo();
 }
